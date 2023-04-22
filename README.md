@@ -1,3 +1,9 @@
-# LibTelnet
+# LibTelnet.jl
 
-libtelnet-rs, but it's julia
+libtelnet-rs, but it's Julia
+
+## Usage
+
+```julia
+using LibTelnet
+```
