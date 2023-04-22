@@ -1,5 +1,9 @@
 module LibTelnet
 
-# Write your package code here.
+export
+    Commands,
+    Options
+
+include("constants.jl")
 
 end
