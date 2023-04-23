@@ -21,7 +21,7 @@ module Parser
             end
             return false
         end
-        while pointer <= length(input)
+        while pointer < length(input)
             byte::UInt8 = input[pointer]
             if state == StateNone
                 # Check for IAC
