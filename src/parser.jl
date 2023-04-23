@@ -66,6 +66,7 @@ module Parser
                     push!(buffer, byte, window)
                     purge()
                     state = StateNone
+                    pointer+=1
                 else
                     push!(buffer, byte)
                 end
