@@ -1,5 +1,6 @@
 module Parser
     using ..LibTelnet
+    using ..LibTelnet.Events
     @enum ParserState begin
         StateNone
         StateIAC
@@ -72,6 +73,13 @@ module Parser
             pointer += 1
         end
         purge() # Empty the buffer if there is something left
+        return result
+    end
+    function parse_events(input::Vector{UInt8})::Vector{Events.TelnetEvent}
+        result::Vector{Events.TelnetEvent} = []
+        for ev in Parser.parse(input)
+            push!(result, ev)
+        end
         return result
     end
 end
