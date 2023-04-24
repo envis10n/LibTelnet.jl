@@ -4,9 +4,13 @@ export
     Commands,
     Options,
     Events,
-    Parser
+    Parser,
+    Compatibility,
+    Bitflags
 
     include("constants.jl")
     include("events.jl")
     include("parser.jl")
+    include("compat.jl")
+    include("bitflags.jl")
 end

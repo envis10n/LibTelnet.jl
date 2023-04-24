@@ -79,7 +79,7 @@ module Parser
     function parse_events(input::Vector{UInt8})::Vector{Events.TelnetEvent}
         result::Vector{Events.TelnetEvent} = []
         for ev in Parser.parse(input)
-            push!(result, ev)
+            push!(result, Events.eventbytes(ev))
         end
         return result
     end

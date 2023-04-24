@@ -12,7 +12,7 @@ module Events
         option::UInt8
         payload::Vector{UInt8}
     end
-    Base.convert(::Type{Vector{UInt8}}, ev::TelnetEvent) = begin
+    function eventbytes(ev::TelnetEvent)::Vector{UInt8}
         if ev.type == IACEvent
             [0xff, ev.command]
         elseif ev.type == NegotiationEvent
@@ -23,7 +23,7 @@ module Events
             ev.payload
         end
     end
-    Base.convert(::Type{TelnetEvent}, buffer::Vector{UInt8}) = begin
+    function eventbytes(buffer::AbstractArray{UInt8,1})::TelnetEvent
         if length(buffer) == 0
             throw("no data")
         else
